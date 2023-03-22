@@ -8,26 +8,26 @@ namespace Graph
 {
     internal class Node
     {
-        private string data;
-        private List<Node> connections;
+        private int data;
+        //private List<Node> connections;
 
-        public Node(string d)
+        public Node(int d)
         {
             data = d;
-            connections = new List<Node>();
+            //connections = new List<Node>();
         }
 
-        // returns true if a node(parameter) is adjacent to this node
-        public bool CheckAdjacency(Node node)
-        {
-            if (connections.Contains(node))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //// returns true if a node(parameter) is adjacent to this node
+        //public bool CheckAdjacency(Node node)
+        //{
+        //    if (connections.Contains(node))
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }
