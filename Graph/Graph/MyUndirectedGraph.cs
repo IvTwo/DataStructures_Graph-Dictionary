@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Graph
 {
@@ -125,14 +126,16 @@ namespace Graph
                 return false;
         }
 
-        public void AddEdge()
+        public void AddEdge(int node1, int node2)
         {
-
+            edges[node1, node2] = 1;
+            edges[node2, node1] = 1;
         }
 
-        public void DeleteEdge()
+        public void DeleteEdge(int node1, int node2)
         {
-
+            edges[node1, node2] = 0;
+            edges[node2, node1] = 0;
         }
     }
 }
