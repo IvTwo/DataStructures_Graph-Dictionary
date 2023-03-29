@@ -9,13 +9,13 @@
 
         public static void userInterface()
         {
-            Player player = new Player(100, 10);
+            Shop player = new Shop(20);
 
             Console.WriteLine();
             Console.WriteLine("Welcome to the Inventory Simulator----!");
             Console.WriteLine();
-            Console.WriteLine("\t1. Buy\n" + "\t2. Sell\n" + "\t3. Inventory\n" +
-                                "\t4. Collection\n" + "\t5. Quit\n");
+            Console.WriteLine("\t1. Buy\n" + "\t2. Sell\n" + "\t3. Shop Inventory\n" +
+                                "\t4. Player Collection\n" + "\t5. Quit\n");
 
             bool keepGoing = true;
             while (keepGoing) 
