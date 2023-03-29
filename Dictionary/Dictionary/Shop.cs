@@ -84,5 +84,24 @@ namespace Dictionary
             Console.WriteLine();
             player.DisplayCoins();
         }
+
+        public void SellItem(string itemName, ref Player player)
+        {
+            if (!player.CheckCollection(itemName))
+            {
+                Console.WriteLine("---");
+                Console.WriteLine("Item not in player collection.");
+                return;
+            }
+
+            // add coins and remove item from player collection
+            player.AddCoins(player.GetItem(itemName).GetPrice());
+            player.RemoveItem(itemName);
+            Console.WriteLine();
+            Console.WriteLine("You sold {0}.", itemName);
+
+            Console.WriteLine();
+            player.DisplayCoins();
+        }
     }
 }

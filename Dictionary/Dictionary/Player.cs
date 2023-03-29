@@ -22,6 +22,10 @@ namespace Dictionary
         {
             return coins;
         }
+        public Item GetItem(string key)
+        {
+            return playerCollection[key];
+        }
 
         public bool SubtractCoins(int num)
         {
@@ -36,6 +40,11 @@ namespace Dictionary
                 coins -= num;
                 return true;
             }
+        }
+
+        public void AddCoins(int num)
+        {
+            coins += num;
         }
 
         public void DisplayCoins()
@@ -75,6 +84,17 @@ namespace Dictionary
                                                 item.GetQuantity(), item.GetName(), item.GetPower(), item.GetPrice()));
             }
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            this.DisplayCoins();
+        }
+
+        // return true if item is in player collection
+        public bool CheckCollection(string itemName)
+        {
+            if (playerCollection.ContainsKey(itemName))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

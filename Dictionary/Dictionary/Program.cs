@@ -38,6 +38,12 @@
 
                     case "sell":
                     case "s":
+                        if (words.Length != 2)  //check command format
+                        {
+                            Console.WriteLine("Invalid Format");
+                            break;
+                        }
+                        shop.SellItem(words[1], ref player);
                         break;
 
                     case "inventory":
