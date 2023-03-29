@@ -30,7 +30,7 @@ namespace Dictionary
                 // if the item is already in the players inventory just increase that item's quantity
                 if (shopInventory.ContainsKey(itemName))
                 {
-                    shopInventory[itemName].IncreaseQuantity();
+                    shopInventory[itemName].ChangeQuantity(1);
                 }
                 // otherwise add item to shop inventory
                 else
@@ -54,6 +54,35 @@ namespace Dictionary
                                                 item.GetQuantity(), item.GetName(), item.GetPower(), item.GetPrice()));
             }
             Console.WriteLine("---------------------------------------------------");
+        }
+
+        public void BuyItem(string itemName, ref Player player)
+        {
+            if (!shopInventory.ContainsKey(itemName))   // make sure item is in shop inventory
+            {
+                Console.WriteLine("---");
+                Console.WriteLine("Item not in shop inventory.");
+                return;
+            }
+
+            // if player has sufficient funds, add item to player collection and delete one from shop inventory
+            if (player.SubtractCoins(shopInventory[itemName].GetPrice()))
+            {
+                player.AddItem(shopInventory[itemName].GetName(), shopInventory[itemName]);
+
+                shopInventory[itemName].ChangeQuantity(-1);
+                if (shopInventory[itemName].GetQuantity() <= 0) // if an item quantity is 0, remove it from the shop inventory
+                {
+                    shopInventory.Remove(itemName);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("You bought {0}.", itemName);
+            }
+
+            // tell player how many coins they have remaining
+            Console.WriteLine();
+            player.DisplayCoins();
         }
     }
 }

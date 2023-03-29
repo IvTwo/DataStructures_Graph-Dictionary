@@ -39,9 +39,9 @@ namespace Dictionary
             return quantity;
         }
 
-        public void IncreaseQuantity()
+        public void ChangeQuantity(int q)
         {
-            quantity++;
+            quantity += q;
         }
     }
 }

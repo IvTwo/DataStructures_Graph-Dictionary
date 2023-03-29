@@ -4,38 +4,52 @@
     {
         static void Main(string[] args)
         {
-            userInterface();
+            MyMenu();
         }
 
-        public static void userInterface()
+        public static void MyMenu()
         {
-            Shop player = new Shop(20);
-
-            Console.WriteLine();
-            Console.WriteLine("Welcome to the Inventory Simulator----!");
-            Console.WriteLine();
-            Console.WriteLine("\t1. Buy\n" + "\t2. Sell\n" + "\t3. Shop Inventory\n" +
-                                "\t4. Player Collection\n" + "\t5. Quit\n");
+            Shop shop = new Shop(20);
+            Player player = new Player(10);
 
             bool keepGoing = true;
-            while (keepGoing) 
+            Console.WriteLine();
+            Console.WriteLine("Welcome To The Shop Simulator----!");
+            player.DisplayCoins();
+            Console.WriteLine("Please enter a command | To exit the program input \"q\"");
+
+            while (keepGoing)
             {
-                switch (UserInput()) // handle user input
+                Console.WriteLine();
+                string userInput = UserInput();
+                string[] words = userInput.Split(' ');
+
+                switch (words[0].ToLower())   // handle user input
                 {
-                    case "1":
+                    case "buy": 
+                    case "b":
+                        if (words.Length != 2)  //check command format
+                        {
+                            Console.WriteLine("Invalid Format");
+                            break;
+                        }
+                        shop.BuyItem(words[1], ref player);
                         break;
 
-                    case "2":
+                    case "sell":
+                    case "s":
                         break;
 
-                    case "3":
-                        player.DisplayInventory();
+                    case "inventory":
+                    case "i":
+                        shop.DisplayInventory();
                         break;
 
-                    case "4":
+                    case "collection":
+                    case "c":
                         break;
 
-                    case "5":
+                    case "q":
                         keepGoing = false;
                         break;
 
@@ -53,6 +67,5 @@
             Console.Write("\t * Your Input: ");
             return Console.ReadLine();
         }
-
     }
 }
