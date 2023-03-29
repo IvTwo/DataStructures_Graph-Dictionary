@@ -27,7 +27,7 @@ namespace Dictionary
 
                 string itemName = Item_Database.allPosibleItems[randNum].GetName();
 
-                // if the item is already in the players inventory just increase that item's quantity
+                // if the item is already in the shop inventory just increase that item's quantity
                 if (shopInventory.ContainsKey(itemName))
                 {
                     shopInventory[itemName].ChangeQuantity(1);
@@ -68,7 +68,7 @@ namespace Dictionary
             // if player has sufficient funds, add item to player collection and delete one from shop inventory
             if (player.SubtractCoins(shopInventory[itemName].GetPrice()))
             {
-                player.AddItem(shopInventory[itemName].GetName(), shopInventory[itemName]);
+                player.AddItem(shopInventory[itemName].GetName(), shopInventory[itemName].returnItem());
 
                 shopInventory[itemName].ChangeQuantity(-1);
                 if (shopInventory[itemName].GetQuantity() <= 0) // if an item quantity is 0, remove it from the shop inventory

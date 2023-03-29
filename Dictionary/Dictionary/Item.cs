@@ -38,6 +38,11 @@ namespace Dictionary
         {
             return quantity;
         }
+        public Item returnItem()
+        {
+            Item item = new Item(this.name, this.power, this.price);
+            return item;
+        }
 
         public void ChangeQuantity(int q)
         {

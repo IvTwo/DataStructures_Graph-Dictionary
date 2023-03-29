@@ -45,12 +45,36 @@ namespace Dictionary
 
         public void AddItem(string key, Item item)
         {
-            playerCollection.Add(key, item);
+            // if the item is already in the players collection just increase that item's quantity
+            if (playerCollection.ContainsKey(key))
+            {
+                playerCollection[key].ChangeQuantity(1);
+            }
+            // otherwise add item to collection
+            else
+            {
+                playerCollection.Add(key, item);
+            }
         }
 
         public void RemoveItem(string key)
         {
             playerCollection.Remove(key);
+        }
+
+        public void DisplayCollection()
+        {
+            Console.WriteLine("---");
+            Console.WriteLine("Current Player Inventory");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine(string.Format("  {0,-2} | {1,-18} | {2,-10} | {3,-5}", "#", "Item Name", "Item Power", "Item Price"));
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            foreach (var item in playerCollection.Values)
+            {
+                Console.WriteLine(string.Format("  {0,-2} | {1,-18} | {2,-10} | {3,-5}",
+                                                item.GetQuantity(), item.GetName(), item.GetPower(), item.GetPrice()));
+            }
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
     }
 }

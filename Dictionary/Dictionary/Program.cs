@@ -10,7 +10,7 @@
         public static void MyMenu()
         {
             Shop shop = new Shop(20);
-            Player player = new Player(10);
+            Player player = new Player(100);
 
             bool keepGoing = true;
             Console.WriteLine();
@@ -47,6 +47,7 @@
 
                     case "collection":
                     case "c":
+                        player.DisplayCollection();
                         break;
 
                     case "q":
