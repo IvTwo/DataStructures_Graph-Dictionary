@@ -94,7 +94,16 @@ namespace Dictionary
                 return;
             }
 
-            // add coins and remove item from player collection
+            // add coins and remove item from player collection & add it to shop
+            if (shopInventory.ContainsKey(itemName))
+            {
+                shopInventory[itemName].ChangeQuantity(1);
+            }
+            else
+            { 
+                shopInventory.Add(itemName, player.GetItem(itemName).returnItem());
+            }
+
             player.AddCoins(player.GetItem(itemName).GetPrice());
             player.RemoveItem(itemName);
             Console.WriteLine();

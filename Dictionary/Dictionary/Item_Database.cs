@@ -33,12 +33,12 @@ namespace Dictionary
             new Item("Diamond-Pickaxe", 5, DiamondPrice),
             new Item("Netherite-Pickaxe", 6, NetheritePrice),// 12
 
-            new Item("Wooden-Pickaxe", 2, woodPrice),
-            new Item("Gold-Pickaxe", 2, GoldPrice),
-            new Item("Stone-Pickaxe", 3, StonePrice),
-            new Item("Iron-Pickaxe", 4, IronPrice),
-            new Item("Diamond-Pickaxe", 5, DiamondPrice),
-            new Item("Netherite-Pickaxe", 6, NetheritePrice),// 18
+            new Item("Wooden-Shovel", 2, woodPrice),
+            new Item("Gold-Shovel", 2, GoldPrice),
+            new Item("Stone-Shovel", 3, StonePrice),
+            new Item("Iron-Shovel", 4, IronPrice),
+            new Item("Diamond-Shovel", 5, DiamondPrice),
+            new Item("Netherite-Shovel", 6, NetheritePrice),// 18
 
             new Item("Elytra", 0, 20),
             new Item("Shield", 0, 5),  // 20
@@ -48,7 +48,7 @@ namespace Dictionary
         //public static Dictionary<string, Item> itemDictionary = new Dictionary<string, Item>();
         //public static void fillDictionary()
         //{
-        //    foreach (var item in allPosibleItems) 
+        //    foreach (var item in allPosibleItems)
         //    {
         //        itemDictionary.Add(item.GetName(), item);
         //    }
